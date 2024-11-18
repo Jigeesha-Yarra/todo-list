@@ -1,0 +1,227 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #605678;
+    height: 100vh;
+    font-family: "Roboto";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.todos-bg-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .todos-heading {
+    color: #F1F1F1;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .create-task-heading {
+    color: #FFF4F4;
+    font-size: 32px;
+    font-weight: 700;
+  }
+  
+  .create-task-heading-subpart {
+    color: #F5F5F5;
+    font-size: 32px;
+    font-weight: 500;
+  }
+  
+  .todo-items-heading {
+    color: #FFF4F4;
+    font-size: 32px;
+    font-weight: 700;
+  }
+  
+  .todo-items-heading-subpart {
+    color: #F5F5F5;
+    font-size: 32px;
+    font-weight: 500;
+  }
+  
+  .todo-items-container {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+  
+  .todo-item-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .inp-container{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 550px; 
+    margin-left: 0px;
+    margin-bottom: 20px;
+  }
+
+  .todo-user-input {
+    flex: 1;
+    background-color: white;
+    width: 350px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+  }
+  
+  .add-todo-button {
+    position: absolute;
+    right: 20px;
+    color: white;
+    background-color: #4c63b6;
+    cursor: pointer;
+    outline: none;
+    font-size: 18px;
+    border-width: 0px;
+    border-radius: 50%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-right: 10px;
+    padding: 12px 16px 12px 14px; 
+    transition: #6d597a 0.3s ease;
+  }
+
+  .add-todo-button:hover{
+    background-color: #3d5a80;
+  }
+  
+  .label-container {
+    background-color: #E5D9F2;
+    width: 340px;
+    border: 6px solid#1E3E62;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    border-radius: 8px;
+  }
+  
+  .checkbox-input {
+    width: 26px;
+    height: 26px;
+    margin-top: 12px;
+    margin-right: 12px;
+    cursor: pointer;
+  }
+  
+  .checkbox-label {
+    font-size: 16px;
+    font-weight: 400;
+    width: 82%;
+    margin: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 5px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  .delete-icon-container {
+    text-align: right;
+    width: 18%;
+    cursor: pointer;
+  }
+  
+  .delete-icon {
+    padding: 15px;
+  }
+
+  .checked{
+    text-decoration: line-through;
+  }
+
+  @media (max-width: 768px) {
+    .todos-heading {
+        font-size: 2rem;
+    }
+
+    .create-task-heading {
+        font-size: 1.5rem;
+    }
+
+    .todo-user-input {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .add-todo-button {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    .todo-item-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .checkbox-label {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .todos-heading {
+        font-size: 1.8rem;
+    }
+
+    .create-task-heading {
+        font-size: 1.2rem;
+    }
+
+    .todo-user-input {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .add-todo-button {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    .todo-item-container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px;
+    }
+
+    .checkbox-label {
+        font-size: 12px;
+    }
+
+    #saveTodoBtn {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
