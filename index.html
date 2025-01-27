@@ -1,37 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TodoList</title>
-    <link rel="stylesheet" href="styles.css">
-    <link
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-        rel="stylesheet"
-    />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Management App</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="todos-bg-container">
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <h1 class="todos-heading">Todos</h1>
-              <h1 class="create-task-heading">
-                Create <span class="create-task-heading-subpart">Task</span>
-              </h1>
-              <div class="inp-container">
-                <input type="text" id="todoUserInput" placeholder="Add your tasks" class="todo-user-input" />
-                <button class="add-todo-button" id="addTodoBtn">Add</button>
-              </div>
-              <h1 class="todo-items-heading">
-                My <span class="todo-items-heading-subpart">Tasks</span>
-              </h1>
-              <ul class="todo-items-container" id="todoItemsContainer"></ul>
-              <button class="add-todo-button" id="saveTodoBtn">Save</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    <script src="script.js"></script>
+  <div class="container">
+    <header>
+      <h1>User Management</h1>
+      <button class="btn" onclick="showForm()">Add User</button>
+    </header>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Department</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="userTableBody">
+        <!-- Users will be dynamically added here -->
+      </tbody>
+    </table>
+    <div class="form-container hidden" id="userFormContainer">
+      <h2 id="formTitle">Add User</h2>
+      <form id="userForm" onsubmit="submitForm(event)">
+        <input type="hidden" id="userId">
+        <input type="text" id="firstName" placeholder="First Name" required>
+        <input type="text" id="lastName" placeholder="Last Name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="text" id="department" placeholder="Department" required>
+        <button type="submit" class="btn">Save</button>
+        <button type="button" class="btn btn-cancel" onclick="hideForm()">Cancel</button>
+      </form>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>

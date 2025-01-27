@@ -1,227 +1,159 @@
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  font-style: italic;
+  line-height: 1.6;
+  color: #333;
+  background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
 }
 
-body{
-    background-color: #605678;
-    height: 100vh;
-    font-family: "Roboto";
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+/* Layout */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+h1 {
+  font-size: 2rem;
+  color: #4CAF50;
+}
+.btn {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.btn:hover {
+  background: #45a049;
+  transform: scale(1.05);
+}
+.btn-cancel {
+  background: #ff5f5f;
+}
+.btn-cancel:hover {
+  background: #ff3b3b;
 }
 
-.todos-bg-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  overflow-x: auto;
+}
+th, td {
+  text-align: left;
+  padding: 10px 15px; 
+  border: 1px solid #ddd;
+}
+th {
+  background: #f4f4f4;
+  font-weight: bold;
+}
+tr {
+  transition: transform 0.2s ease;
+}
+tr:hover {
+  background: #f9f9f9;
+  transform: scale(1.01);
+}
+thead {
+  position: sticky;
+  top: 0; /* To Make the header sticky on scroll */
+  background: white;
+}
+
+/* Form Styling */
+.form-container {
+  margin-top: 20px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.hidden {
+  display: none;
+}
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+input:focus {
+  border-color: #4CAF50;
+  outline: none;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+@media (max-width: 1024px) {
+  /* Medium devices (Tablets) */
+  h1 {
+    font-size: 1.8rem;
   }
-  
-  .todos-heading {
-    color: #F1F1F1;
+  table {
+    font-size: 0.9rem;
+  }
+  th, td {
+    padding: 8px 12px;
+  }
+  .btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Small devices (Mobile) */
+  h1 {
+    font-size: 1.5rem;
     text-align: center;
-    font-size: 50px;
-    font-weight: 600;
-    margin-top: 20px;
-    margin-bottom: 20px;
   }
-  
-  .create-task-heading {
-    color: #FFF4F4;
-    font-size: 32px;
-    font-weight: 700;
-  }
-  
-  .create-task-heading-subpart {
-    color: #F5F5F5;
-    font-size: 32px;
-    font-weight: 500;
-  }
-  
-  .todo-items-heading {
-    color: #FFF4F4;
-    font-size: 32px;
-    font-weight: 700;
-  }
-  
-  .todo-items-heading-subpart {
-    color: #F5F5F5;
-    font-size: 32px;
-    font-weight: 500;
-  }
-  
-  .todo-items-container {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-  }
-  
-  .todo-item-container {
-    display: flex;
+  header {
+    flex-direction: column;
     align-items: center;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 10px;
   }
-
-  .inp-container{
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 550px; 
-    margin-left: 0px;
-    margin-bottom: 20px;
+  .btn {
+    margin-top: 10px;
+    padding: 8px 16px;
+    font-size: 0.8rem;
   }
-
-  .todo-user-input {
-    flex: 1;
-    background-color: white;
-    width: 350px;
-    border: none;
-    outline: none;
-    border-radius: 10px;
-    margin: 20px;
-    padding: 20px;
+  table {
+    font-size: 0.8rem;
   }
-  
-  .add-todo-button {
-    position: absolute;
-    right: 20px;
-    color: white;
-    background-color: #4c63b6;
-    cursor: pointer;
-    outline: none;
-    font-size: 18px;
-    border-width: 0px;
-    border-radius: 50%;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-right: 10px;
-    padding: 12px 16px 12px 14px; 
-    transition: #6d597a 0.3s ease;
+  th, td {
+    padding: 6px 10px;
   }
-
-  .add-todo-button:hover{
-    background-color: #3d5a80;
-  }
-  
-  .label-container {
-    background-color: #E5D9F2;
-    width: 340px;
-    border: 6px solid#1E3E62;
-    border-right: none;
-    border-top: none;
-    border-bottom: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex: 1;
-    border-radius: 8px;
-  }
-  
-  .checkbox-input {
-    width: 26px;
-    height: 26px;
-    margin-top: 12px;
-    margin-right: 12px;
-    cursor: pointer;
-  }
-  
-  .checkbox-label {
-    font-size: 16px;
-    font-weight: 400;
-    width: 82%;
-    margin: 0px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-radius: 5px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-  }
-  
-  .delete-icon-container {
-    text-align: right;
-    width: 18%;
-    cursor: pointer;
-  }
-  
-  .delete-icon {
-    padding: 15px;
-  }
-
-  .checked{
-    text-decoration: line-through;
-  }
-
-  @media (max-width: 768px) {
-    .todos-heading {
-        font-size: 2rem;
-    }
-
-    .create-task-heading {
-        font-size: 1.5rem;
-    }
-
-    .todo-user-input {
-        font-size: 14px;
-        padding: 10px;
-    }
-
-    .add-todo-button {
-        font-size: 14px;
-        padding: 8px 15px;
-    }
-
-    .todo-item-container {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .checkbox-label {
-        font-size: 14px;
-    }
 }
 
 @media (max-width: 480px) {
-    .todos-heading {
-        font-size: 1.8rem;
-    }
-
-    .create-task-heading {
-        font-size: 1.2rem;
-    }
-
-    .todo-user-input {
-        font-size: 12px;
-        padding: 8px;
-    }
-
-    .add-todo-button {
-        font-size: 12px;
-        padding: 6px 10px;
-    }
-
-    .todo-item-container {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 8px;
-    }
-
-    .checkbox-label {
-        font-size: 12px;
-    }
-
-    #saveTodoBtn {
-        font-size: 14px;
-        padding: 8px;
-    }
+  /* Extra Small Devices */
+  h1 {
+    font-size: 1.2rem;
+  }
+  table {
+    font-size: 0.75rem;
+  }
+  th, td {
+    padding: 5px 8px;
+  }
+  .btn {
+    padding: 6px 12px;
+    font-size: 0.7rem;
+  }
 }
